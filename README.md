@@ -33,14 +33,57 @@ Software  requirements
 ---
 
 CARLA requires many different kinds of software to run. Some are built during the CARLA build process itself, such as Boost.Python. Others are binaries that should be installed before starting the build (cmake, clang, different versions of Python, etc.). To install these requirements, run the following commands:
-
-``` sudo apt-get update &&
+```
+sudo apt-get update &&
 sudo apt-get install wget software-properties-common &&
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test &&
 wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add - &&
 sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-8 main" &&
-sudo apt-get update ``` 
+sudo apt-get update
+```
 
+To avoid compatibility issues between Unreal Engine and the CARLA dependencies, use the same compiler version and C++ runtime library to compile everything. The CARLA team uses clang-8 (or clang-10 in Ubuntu 20.04) and LLVM's libc++. Change the default clang version to compile Unreal Engine and the CARLA dependencies.
 
+```
+sudo apt-add-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal main"
+sudo apt-get install build-essential clang-10 lld-10 g++-7 cmake ninja-build libvulkan1 python python-dev python3-dev python3-pip libpng-dev libtiff5-dev libjpeg-dev tzdata sed curl unzip autoconf libtool rsync libxml2-dev git
+sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/lib/llvm-10/bin/clang++ 180 &&
+sudo update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-10/bin/clang 180
+```
 
+Starting with CARLA 0.9.12, users have the option to install the CARLA Python API using pip or pip3. Version 20.3 or higher is required. To check if you have a suitable version, run the following command:
 
+```
+pip3 -V
+```
+
+If you need to upgrade:
+```
+pip3 install --upgrade pip
+```
+
+You must install the following Python dependencies:
+```
+pip install --user setuptools &&
+pip3 install --user -Iv setuptools==47.3.1 &&
+pip install --user distro &&
+pip3 install --user distro &&
+pip install --user wheel &&
+pip3 install --user wheel auditwheel
+```
+
+Unreal engine Installation
+---
+Starting with version 0.9.12, CARLA uses a modified fork of Unreal Engine 4.26. This fork contains patches specific to CARLA.
+
+Be aware that to download this fork of Unreal Engine, you need to have a GitHub account linked to Unreal Engine's account. If you don't have this set up, please follow the following steps.
+
+![un](https://user-images.githubusercontent.com/115306756/220687313-a664fbe5-458d-43ab-aaa3-fa43e5e8242e.jpg)
+
+When you follow the steps as mentioned above you need to get a personal token for cloning the Unreal engine which will be your password requested in the terminal during executing the following code which is the first step of installing unreal engine.
+
+1. Clone the content for CARLA's fork of Unreal Engine 4.26 to your local computer:
+```
+git clone --depth 1 -b carla https://github.com/CarlaUnreal/UnrealEngine.git ~/UnrealEngine_4.26
+```
+At this stage you are propmpet to use your username and password (your user name is your email which you use for Github and Unreal engine during the previous steps and for Password following steps are required)
