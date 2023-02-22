@@ -87,3 +87,21 @@ When you follow the steps as mentioned above you need to get a personal token fo
 git clone --depth 1 -b carla https://github.com/CarlaUnreal/UnrealEngine.git ~/UnrealEngine_4.26
 ```
 At this stage you are propmpet to use your username and password (your user name is your email which you use for Github and Unreal engine during the previous steps and for Password following steps are required)
+
+
+![git2](https://user-images.githubusercontent.com/115306756/220688510-e358ce5f-1a8e-4824-bb00-78427bd05054.jpg)
+
+after clicking on generating the token you will se a code which will be your persoanl token and it should be coppied and pasted to the terminal to start cloning the unreal engine.
+
+2. Navigate into the directory where you cloned the repository:
+```
+ cd ~/UnrealEngine_4.26
+```
+3. Make the build. This may take an hour or two depending on your system.
+```
+./Setup.sh && ./GenerateProjectFiles.sh && make
+```
+4. Open the Editor to check that Unreal Engine has been installed properly.
+```
+ cd ~/UnrealEngine_4.26/Engine/Binaries/Linux && ./UE4Editor
+```
