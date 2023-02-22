@@ -28,3 +28,19 @@ Hardware Requirements:
 •	Memory: 32 GB DDR4-3200 SDRAM (2 x 16 GB)
 
 •	Storage: 1 TB PCIe® NVMe™ M.2 SSD
+
+Software  requirements 
+---
+
+CARLA requires many different kinds of software to run. Some are built during the CARLA build process itself, such as Boost.Python. Others are binaries that should be installed before starting the build (cmake, clang, different versions of Python, etc.). To install these requirements, run the following commands:
+
+``` sudo apt-get update &&
+sudo apt-get install wget software-properties-common &&
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test &&
+wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add - &&
+sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-8 main" &&
+sudo apt-get update ``` 
+
+
+
+
