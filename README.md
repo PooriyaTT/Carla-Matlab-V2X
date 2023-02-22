@@ -134,4 +134,13 @@ This section outlines the commands to build CARLA. All commands should be run in
 The Python API client grants control over the simulation. Compilation of the Python API client is required the first time you build CARLA and again after you perform any updates. After the client is compiled, you will be able to run scripts to interact with the simulation.
 
 1.The following command compiles the Python API client: ``` make PythonAPI ```
+
 2.The following command compiles and launches Unreal Engine. Run this command each time you want to launch the server or use the Unreal Engine editor: ``` make launch```
+
+3.start the simulation: now you should be able to see unreal engine window with the following texture and you should press the play button to start the server:
+![MicrosoftTeams-image (15)](https://user-images.githubusercontent.com/115306756/220692445-3efff1dc-6ff4-43eb-b293-0c70fe5e51de.png)
+
+
+
+
+
