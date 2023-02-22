@@ -119,6 +119,7 @@ Downloading aria2 with ```sudo apt-get install aria2 ```will speed up the follow
 2.You will need to download the latest assets to work with the current version of CARLA. We provide a script to automate this process. To use the script, run the following command in the CARLA root folder:
 
 ```./Update.sh```
+![ca](https://user-images.githubusercontent.com/115306756/220690846-57562383-9c9a-4a73-bfd1-9c3d6b241017.jpg)
 
 3.Set Unreal Engine environment variable: For CARLA to find the correct installation of Unreal Engine, we need to set the CARLA environment variable.
 
