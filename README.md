@@ -1,2 +1,3 @@
 # Carla-Matlab-V2X
 Accurate and robust logical driving behavior based on V2I communication for Connected &amp; Autonomous Transport (CAT) at XL business park                                                                
+Carla is a software program designed for researching autonomous driving that is available for free use and modification. Its interface is robust and enables the development, training, and validation of autonomous driving systems. On the other hand, MATLAB, which is widely utilized, particularly by engineers, requires no introduction. Its numerous features facilitate rapid product development. Therefore, in this work a combination of these two software was used to create V2I application.
