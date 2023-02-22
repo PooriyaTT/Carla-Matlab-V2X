@@ -187,3 +187,33 @@ after setting all these parameteres which are defined as pre-defined properties 
 
 10. when there is a warning received by the CAT vehicle autopilot activate changes to autopilot deactivate for 2 secs (this is just an indicator to see when the CAT vehicle is controlled by RSU)
 
+When Careless driving is activated the user has the ability to control the following driving behaviour which can be found from line 143 to 168 in turnLeftScenario.m:
+
+- Set a minimum distance between stopped vehicles (for a single vehicle or for all vehicles). This will affect the minimum moving distance.
+
+- Set the desired speed as a percentage of the current speed limit (for a single vehicle or for all vehicles).
+
+- Reset traffic lights.
+
+- Enable/Disable collisions between a vehicle and a specific actor.
+
+- Make a vehicle ignore all other vehicles.
+
+- Make a vehicle ignore all walkers.
+
+- Make a vehicle ignore all traffic lights.
+
+- Force a lane change, ignoring possible collisions.
+
+- Enable/Disable lane changes for a vehicle.
+
+- Enable/Disable hybrid physics mode.
+
+- Change the radius in which physics is enabled.
+
+Since in this project cCar and uCar are predefined and have different ID we can control both of them along with other actors.
+
+For example if user wants to force the cCar to drive at 45km/h instead of 30km/h and uCar 15km/h instead of 30km/h following code should be changed in the mentiond matlab function.
+
+obj.trafficManager.vehicle_percentage_speed_difference(obj.cCar, -5o); which means cCar should drive 50% more of the speed limit which will be 45 km/h              
+obj.trafficManager.vehicle_percentage_speed_difference(obj.uCar, 50); which means uCar should drive 50% of the speed limit which will be 15km/h
