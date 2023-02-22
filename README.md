@@ -126,3 +126,12 @@ Downloading aria2 with ```sudo apt-get install aria2 ```will speed up the follow
    1. Open ~/.bashrc or ./profile with the following code: ```  gedit ~/.bashrc``` or ```  gedit ~/.profile```
    2. Add the following line to the bottom of the file: ``` export UE4_ROOT=~/UnrealEngine_4.26  ``` 
    3. Save the file and reset the terminal.
+
+Build CARLA
+---
+This section outlines the commands to build CARLA. All commands should be run in the root CARLA folder.
+
+The Python API client grants control over the simulation. Compilation of the Python API client is required the first time you build CARLA and again after you perform any updates. After the client is compiled, you will be able to run scripts to interact with the simulation.
+
+1.The following command compiles the Python API client: ``` make PythonAPI ```
+2.The following command compiles and launches Unreal Engine. Run this command each time you want to launch the server or use the Unreal Engine editor: ``` make launch```
