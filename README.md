@@ -215,5 +215,6 @@ Since in this project cCar and uCar are predefined and have different ID we can 
 
 For example if user wants to force the cCar to drive at 45km/h instead of 30km/h and uCar 15km/h instead of 30km/h following code should be changed in the mentiond matlab function.
 
-obj.trafficManager.vehicle_percentage_speed_difference(obj.cCar, -5o); which means cCar should drive 50% more of the speed limit which will be 45 km/h              
+obj.trafficManager.vehicle_percentage_speed_difference(obj.cCar, -5o); which means cCar should drive 50% more of the speed limit which will be 45 km/h      
+
 obj.trafficManager.vehicle_percentage_speed_difference(obj.uCar, 50); which means uCar should drive 50% of the speed limit which will be 15km/h
