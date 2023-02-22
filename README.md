@@ -105,3 +105,23 @@ after clicking on generating the token you will se a code which will be your per
 ```
  cd ~/UnrealEngine_4.26/Engine/Binaries/Linux && ./UE4Editor
 ```
+At this stage you should be able to have Unreal Engine up and running.
+
+Installing CARLA
+---
+
+Downloading aria2 with ```sudo apt-get install aria2 ```will speed up the following commands.
+
+1.Clone CARLA using the following command:
+
+```git clone https://github.com/carla-simulator/carla```
+
+2.You will need to download the latest assets to work with the current version of CARLA. We provide a script to automate this process. To use the script, run the following command in the CARLA root folder:
+
+```./Update.sh```
+
+3.Set Unreal Engine environment variable: For CARLA to find the correct installation of Unreal Engine, we need to set the CARLA environment variable.
+
+   1. Open ~/.bashrc or ./profile with the following code: ```  gedit ~/.bashrc``` or ```  gedit ~/.profile```
+   2. Add the following line to the bottom of the file: ``` export UE4_ROOT=~/UnrealEngine_4.26  ``` 
+   3. Save the file and reset the terminal.
