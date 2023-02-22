@@ -157,3 +157,33 @@ Now, the Map packages can be found in unreal engine in the following directory:
 Content>map_package>Maps>CARLAXLBP>CARLAXLBP (which has a level tag and the icon is in yellow)
 ![123](https://user-images.githubusercontent.com/115306756/220699949-1f067c7d-746d-47a5-82b5-19499c7b0ef3.jpg)
 
+After setting up CARLA and Unreal engine, not it is the time to run the developed algorithem.
+
+
+MATLAB explanation 
+---
+
+In generateTurnLeftScenario.m all the pathes and the desired pathes for cCar and uCar and all the other actors are defined as well as RSU-LiDAR attributes and its location. Waring time (TTC) and also safety range could be modified in that function also. For higher speed TTC and safety must be adopt carefully. In input section Timesteps and also Deceleration period are adjustable.
+
+after setting all these parameteres which are defined as pre-defined properties you can double click on scenarioViewer.mlapp to run the desired scenarios. By clicking on scenarioViewer.mlapp the developed application will pop up and some parameteres can be changed and some explnation are neccessary which are listed below:
+
+![image](https://user-images.githubusercontent.com/115306756/220702837-4a5f2844-3873-4093-89ce-96656a3653c8.png)
+
+1.View height defines the height of the RGB camera for the top view 
+
+2.In this box user is able to shift the RGB camera for the top view.
+
+3&4.User can either manually enter the coordinates of the map to set the position of the CCar, or leave it blank to have the CAT vehicle spawn randomly. (same is applicable for the 4th point for UCar)
+
+5. Within this box, user can specify the number of vehicles to be spawned on their respective paths.
+
+6. By checking careless driving check box, all the actors can be controlled via traffic manager (speed, collision detector, following distance and etc)
+
+7. By checking apply control, CAT vehicle reads the proposed control algorithm (the reason for that was to evaluate CAT vehicle behaviour without control algorithm)
+ 
+8. Current time shows the time of the simulation and it updates every 0.1s.
+ 
+9. RSU warning shows the TTC upon issued warning.
+
+10. when there is a warning received by the CAT vehicle autopilot activate changes to autopilot deactivate for 2 secs (this is just an indicator to see when the CAT vehicle is controlled by RSU)
+
