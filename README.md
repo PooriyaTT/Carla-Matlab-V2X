@@ -138,9 +138,22 @@ The Python API client grants control over the simulation. Compilation of the Pyt
 2.The following command compiles and launches Unreal Engine. Run this command each time you want to launch the server or use the Unreal Engine editor: ``` make launch```
 
 3.start the simulation: now you should be able to see unreal engine window with the following texture and you should press the play button to start the server:
-![MicrosoftTeams-image (15)](https://user-images.githubusercontent.com/115306756/220692445-3efff1dc-6ff4-43eb-b293-0c70fe5e51de.png)
 
+![unreal](https://user-images.githubusercontent.com/115306756/220692868-254e41f4-71c0-4465-9d25-ce482b2e6dcb.jpg)
 
+Now the CARLA server is running and is waiting to be connected to MATLAB or Python through port 2000.
 
+Coppying XL BP's Map layout 
+---
+In this stage we want to have the designed custom map to be loaded in Unreal Engine.
+The neccessary files can be found in the folder *MAP* which is included .fbx and .xodr files among with the other neccessary files. Those files need to be coppied and pasted in Import folder in CARLA root directory
 
+![ca](https://user-images.githubusercontent.com/115306756/220698404-a3fbe72e-fbf4-4c96-9c14-8d8b36093f23.jpg)
+
+after coppying is done, a terminal in CARLA root directory should be opened and run the the following command ```make Import```
+
+Now, the Map packages can be found in unreal engine in the following directory:
+
+Content>map_package>Maps>CARLAXLBP>CARLAXLBP (which has a level tag and the icon is in yellow)
+![123](https://user-images.githubusercontent.com/115306756/220699949-1f067c7d-746d-47a5-82b5-19499c7b0ef3.jpg)
 
