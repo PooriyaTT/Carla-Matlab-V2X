@@ -218,3 +218,89 @@ For example if user wants to force the cCar to drive at 45km/h instead of 30km/h
 obj.trafficManager.vehicle_percentage_speed_difference(obj.cCar, -5o); which means cCar should drive 50% more of the speed limit which will be 45 km/h      
 
 obj.trafficManager.vehicle_percentage_speed_difference(obj.uCar, 50); which means uCar should drive 50% of the speed limit which will be 15km/h
+
+
+Implementing the setup in other locations
+---
+
+The framework has been designed for easy implementation in different locations, and as such, this section provides a detailed explanation for users on how to achieve this.
+For doing so we need to specify the following parametres in generateTurnLeftScenario.m:
+1. each path's coordinates (x,y)
+2. Center, which is the accident point 
+3. The location of the RSU
+4. cCar and uCar path index
+
+1.each path's coordinates (x,y)
+---
+
+For achieveing the coordinates of each path, a vehicle can be spawned using manual_control.py and by doing that an approximation of the desired coordinates can be achieved as shown in th![MicrosoftTeams-image (18)](https://user-images.githubusercontent.com/115306756/222137051-5d8cbec6-7afb-48d0-9875-814f8852b045.png)
+e picture.
+
+
+In order to obtain precise coordinates for lidar detection and path filtering, a Walker should be spawned and the following code can be used with a Python interface such as Jupyter Notebook, or any other interface that supports Python, using a trial and error approach.
+
+```
+import carla 
+import math 
+import random 
+import time 
+import numpy as np
+import cv2 # Connect the client and set up bp library and spawn points
+client = carla.Client('localhost', 2000) 
+world = client.get_world()
+bp_lib = world.get_blueprint_library() 
+blueprint_library = world.get_blueprint_library()
+bp1 = blueprint_library.filter("walker.*")[0]
+#bp.set_attribute('color', '255,0,0') print(bp1)
+spawn_point = carla.Transform(carla.Location(x=554.4849,y=167.128, z=0.598),carla.Rotation(pitch=0.0, yaw=0.0, roll=0.000000)) vehicle = world.spawn_actor(bp1, spawn_point)
+```
+This process is time consuming since all the point should be achieved manually.
+
+Once all the desired paths have been obtained, the LiDAR location must be chosen and placed at the desired point. This location is related to the accident point and may require trial and error to achieve the desired outcome. Additionally, the paths for both cCar and uCar should be selected to match the desired path.
+
+For instance, to illustrate two different paths with different coordinates, let's consider the Xl BP entrance as an example.
+
+path1.xRange=[634
+    599.259263852877
+580.062802131787
+574.87932675924
+570.626554876634
+570.038545025847
+571.135913728272
+];
+path1.yRange=[281
+    266.716758775826
+258.787739854474
+255.201958342648
+248.764318606281
+242.222252911202
+233.992457812997
+];
+path2.xRange=[754.407722890265
+738.894749629363
+714.875296281831
+687.931711144475
+666.295195806901
+633.636304731318
+604.252665977478
+583.366144096083
+574.517906691718
+564.986154651883
+551.504998869021
+535.44146861407
+530.542634952732
+];
+path2.yRange=[322.536110677723
+317.226565453074
+308.779093708541
+299.557252002573
+292.151833662932
+280.973843716304
+272.275602592047
+265.353338159967
+261.871982606853
+257.703768987282
+251.73089830659
+247.327086697693
+243.650388205699
+];
